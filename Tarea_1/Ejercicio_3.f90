@@ -1,6 +1,6 @@
 program caida_libre
     implicit none
-    real(8)::h,y,vy,t,e,v0x,dt,ti
+    real(8)::h,y,vy,t,e,v0x,dt
     real(8),parameter::g=9.80665d0
 
     !Pedimos los parametros iniciales del problema 
@@ -20,24 +20,22 @@ program caida_libre
 
     open(11,file='Ejercicio_3.dat',status= 'unknown')
 
-    do while (h>0) !Realizamos los calculos y los guardamos en un arcchivo
-        do while (y>0) !Particula bajando                     
-            write(11,'(5(F10.5,1x))')t,y
-            t= t+dt
-            vy= g*t
-            y= y - vy*dt
+    do while (h>0) !Realizamos los calculos y los guardamos en un arcchivo 
+        do while (y>0) !bajada             
+            write(11,'(5(F10.5,1x))')t,y,vy
+            t = t+dt
+            vy = vy + g*dt
+            y = y - vy*dt
         enddo
-        ti= t
-        vy= -e*vy
-        y= 0
-        do while (vy<0) !Particula subiendo                      
-            write(11,'(5(F10.5,1x))')t,y
-            t= t+dt
-            vy= vy + g*(t-ti)
-            y= y - vy*dt
-        enddo 
-        h= y
+        vy = -e*vy
+        y = 0
+        do while (vy<0) !subida
+            write(11,'(5(F10.5,1x))')t,y,vy
+            t = t+dt
+            vy = vy + g*dt
+            y = y - vy*dt
+        h = y
+        enddo
     enddo
     close(11)
-
 end program caida_libre

@@ -15,7 +15,8 @@ program ecuacion_cuadratica
         x= -b/(2*a)
         y= (sqrt(-determinante)/(2*a))
         write(6,*)
-        write(6,*)'Soluciones complejas conjugadas: x1= ',x,'+',y,'i',', x2= ',x,'-',y,'i'
+        write(6,'(a37,F10.5,1x,a1,F10.5,a1,1x,a6,F10.5,1x,a1,F10.5,a1)')'Soluciones complejas conjugadas: x1= ',x, &
+        '+',y,'i',', x2= ',x,'-',y,'i'
         write(6,*)
     else !Si el determinante es positivo o cero .7separamos en casos:
         if (b>=0) then !Si b >= 0 entonces racionalizamos x1
