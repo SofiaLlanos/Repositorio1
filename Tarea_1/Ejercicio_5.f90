@@ -10,7 +10,7 @@ program digitos_significativos
 
     do i = 0,50 !arreglar
         fx = (x**2) / (sqrt(x**2 + 1.d0) + 1.d0) !racionalizamos
-        gx = (x**3)/6 !expandimos por Taylor
+        gx = (x**3)/6 !expandimos por Taylor centrado en 0
         x = 0.000002*i
         write(11,'(5(F16.15,1x))')x,fx,gx        
     enddo
