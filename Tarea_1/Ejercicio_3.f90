@@ -22,7 +22,7 @@ program caida_libre
 
     do while (h>0) !Realizamos los calculos y los guardamos en un arcchivo 
         do while (y>0) !bajada             
-            write(11,'(5(F10.5,1x))')t,y,vy
+            write(11,'(5(F10.5,1x))')t,y,v0x,vy
             t = t+dt
             vy = vy + g*dt
             y = y - vy*dt
@@ -30,7 +30,7 @@ program caida_libre
         vy = -e*vy
         y = 0
         do while (vy<0) !subida
-            write(11,'(5(F10.5,1x))')t,y,vy
+            write(11,'(5(F10.5,1x))')t,y,v0x,vy
             t = t+dt
             vy = vy + g*dt
             y = y - vy*dt
