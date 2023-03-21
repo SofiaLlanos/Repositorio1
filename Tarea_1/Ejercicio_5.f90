@@ -8,11 +8,11 @@ program digitos_significativos
     x = 0
     open(11, file = 'Ejercicio_5.dat', status = 'unknown')
 
-    do i = 0,100 !arreglar
-        fx = (x**2) / (sqrt(x**2 + 1) + 1)
-        gx = (x**2 + cos(x)**2 - 1) / (x + sin(x))
-        x = x + 0.000001*i
-        write(11,'(5(F10.8,1x))')x,fx,gx        
+    do i = 0,50 !arreglar
+        fx = (x**2) / (sqrt(x**2 + 1.d0) + 1.d0) !racionalizamos
+        gx = (x**3)/6 !expandimos por Taylor
+        x = 0.000002*i
+        write(11,'(5(F16.15,1x))')x,fx,gx        
     enddo
     close(11)
     
