@@ -1,8 +1,8 @@
 !calcula la integral usando el metodo Simpson
-SUBROUTINE simpson(a,b,N,sum)
+SUBROUTINE simpson(tipo,a,b,N,sum)
     implicit none
     integer,INTENT(INOUT)::N
-    real(8),INTENT(IN)::a,b
+    real(8),INTENT(IN)::a,b,tipo
     real(8),INTENT(OUT)::sum
     integer::i
     real(8)::x,fx,h
@@ -25,7 +25,7 @@ SUBROUTINE simpson(a,b,N,sum)
     sum=0.d0; x=a
     do i=1,N-1        
        x=x+h         
-       call funcion(x,fx)
+       call funcion(tipo,x,fx)
        sum=sum+(w(i)*fx)       
        write(6,*)i,x,fx,sum
     end do
