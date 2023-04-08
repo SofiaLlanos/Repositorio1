@@ -2,7 +2,8 @@
 SUBROUTINE simpson(tipo,a,b,N,sum)
     implicit none
     integer,INTENT(INOUT)::N
-    real(8),INTENT(IN)::a,b,tipo
+    integer, INTENT(IN):: tipo
+    real(8),INTENT(IN)::a,b
     real(8),INTENT(OUT)::sum
     integer::i
     real(8)::x,fx,h
@@ -23,11 +24,14 @@ SUBROUTINE simpson(tipo,a,b,N,sum)
 
     !calcula la integral
     sum=0.d0; x=a
-    do i=1,N-1        
-       x=x+h         
-       call funcion(tipo,x,fx)
-       sum=sum+(w(i)*fx)       
-       write(6,*)i,x,fx,sum
+    do i=1,N+1        
+       if (tipo == 1) then
+            call funcion1_1(x,fx)
+       else if (tipo == 2) then
+            call funcion1_2(x,fx)
+       end if
+        sum=sum+w(i)*fx
+        x=a+i*h
     end do
     sum=sum*h/3.d0
     deallocate(w)
