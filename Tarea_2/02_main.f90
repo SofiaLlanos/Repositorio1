@@ -8,7 +8,7 @@ program periodo
     N = 100
     I = 0.d0
 
-    open(11, file = '022_main.dat', status = 'unknown')
+    open(11, file = '02_main.dat', status = 'unknown')
 
     do i = 80, 88
 

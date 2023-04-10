@@ -32,6 +32,6 @@ SUBROUTINE gauss_legendre_infty1(a,N,integral)
     end do
     
     deallocate(x,w) !libera memoria
-    
-  END SUBROUTINE gauss_legendre_infty1
+
+   END SUBROUTINE
   
