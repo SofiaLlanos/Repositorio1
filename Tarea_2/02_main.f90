@@ -19,5 +19,6 @@ program periodo
         write(11, '(F10.5,1x,F10.5,1x,F10.5)')theta_max, S, err
 
     end do
+    close(11)
 
 end program periodo

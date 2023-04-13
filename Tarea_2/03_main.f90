@@ -11,9 +11,9 @@ program problema1
 
     open(11, file = '03_main.dat', status = 'unknown')
 
-    z = 0        
-    dz = 100.d0/1000
-    do i = 1,1000
+    z = -400       
+    dz = 800.d0/10000
+    do i = 1,10000
         call gauss_legendre_infty2(z,(1.d0/5),100,sum2)
         z = z + dz
         integral = Q*sum2
