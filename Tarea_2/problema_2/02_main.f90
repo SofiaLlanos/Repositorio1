@@ -10,15 +10,17 @@ program periodo
 
     open(11, file = '02_main.dat', status = 'unknown')
 
-    do i = 80, 88
+    do i = 0, 180
 
         theta_max = (i*PI)/180
         a = 0; b = theta_max
-        call adaptativo2(theta_max, a, b, N, eps, sum, err)
+        call simpson(theta_max, a, b, N, sum)
         S = sum/(2*PI)
-        write(11, '(F10.5,1x,F10.5,1x,F10.5)')theta_max, S, err
+        write(11, '(F10.5,1x,F10.5,1x,F10.5)')theta_max, S
 
     end do
+
+
     close(11)
 
 end program periodo

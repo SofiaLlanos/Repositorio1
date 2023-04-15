@@ -13,7 +13,7 @@ program main_01
 
     open(11, file = '01_main.dat', status = 'unknown')
     !loop para diferntes N
-    do j = 2, 1000, 2
+    do j = 2, 100, 2
         N = j    
         !integracion por simpson y gauss-legendre
         suma_simpson = 0        
